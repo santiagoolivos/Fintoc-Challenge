@@ -1,82 +1,81 @@
-Asunto: Revisión Cartola Débito Directo - Cierre Contable Agosto/Septiembre 2022
+Asunto: Revisión cartola Débito Directo – Cierre contable 08/08 al 14/09
 
 Hola,
 
-Terminé la revisión de la cartola de Débito Directo correspondiente al período del 08 de agosto al 14 de septiembre de 2022. A continuación te comparto el análisis detallado con mis hallazgos y observaciones.
+Ya terminé la revisión de la cartola de Débito Directo correspondiente al período 08 de agosto al 14 de septiembre de 2022. A continuación te comparto un resumen del análisis y los principales hallazgos.
 
+---
 
-RESUMEN GENERAL
----------------
+RESUMEN GENERAL DEL PERÍODO
 
 Durante el período analizado se registraron 70 movimientos en total:
 
-- Ingresos desde bancos: $15,342,256 CLP (22 operaciones)
-- Liquidaciones a comercios: $15,352,260 CLP (48 operaciones)
+* Ingresos desde bancos: $15.342.256 CLP (26 operaciones)
+* Liquidaciones a comercios: $15.352.260 CLP (44 operaciones)
 
-Los principales bancos que aportaron ingresos fueron Banco Santander (38.9%), BCI (27.7%) y Banco Estado (14.8%). En cuanto a comercios, NoPayments concentró el 69.4% de las liquidaciones, seguido por Tesla (8.8%) y Mirador San Juan (8.7%).
+Los principales bancos que aportaron ingresos fueron:
 
+* Banco Santander: 38,9%
+* BCI: 27,7%
+* Banco Estado: 14,8%
+
+En cuanto a las liquidaciones, los comercios con mayor participación fueron:
+
+* NoPayments: 69,4%
+* Tesla: 8,8%
+* Mirador San Juan: 8,7%
+
+---
 
 FUNCIONAMIENTO DEL PRODUCTO
----------------------------
 
-Los movimientos de la cartola reflejan correctamente el flujo operativo del producto. Se observa de manera consistente que:
+El comportamiento de la cartola se condice con el funcionamiento esperado del producto. De forma consistente se observa que:
 
-1. Los bancos realizan transferencias agregadas a Fintoc con el dinero debitado de los usuarios (registrado como "Ingreso por PAC Multibanco").
+1. Los bancos transfieren a Fintoc los montos debitados a los usuarios, registrados como “Ingreso por PAC Multibanco”.
+2. Al día hábil siguiente, Fintoc liquida esos montos a los comercios correspondientes, registrados como “Liquidación a:”.
 
-2. Al día hábil siguiente, Fintoc liquida a cada comercio el monto que le corresponde (registrado como "Liquidación a:").
+Por ejemplo, el 13 de septiembre ingresaron $583.126 desde Banco Santander y el 14 de septiembre se liquidó exactamente ese monto a NoPayments. Este patrón se repite de forma consistente durante todo el período analizado.
 
-Por ejemplo, el 13 de septiembre ingresaron $583,126 desde Banco Santander, y el 14 de septiembre se liquidó exactamente ese monto a NoPayments. Este patrón se repite de forma consistente a lo largo del período.
+---
 
+ANOMALÍAS Y OBSERVACIONES
 
-ANOMALÍAS IDENTIFICADAS
------------------------
+1. Descuadre de $10.004 CLP
 
-A pesar del correcto funcionamiento general, identifiqué tres situaciones que requieren revisión:
+Existe una diferencia entre el total de ingresos y el total de liquidaciones. Las liquidaciones superan a los ingresos en $10.004.
 
+El caso más claro ocurre el 31 de agosto, donde se liquidaron $10.030 distribuidos entre 9 comercios, mientras que el día anterior (30 de agosto) solo se registró un ingreso de $40 desde Banco Falabella.
 
-1. Descuadre de $10,004 CLP
+Posibles explicaciones:
 
-   Existe una diferencia entre el total de ingresos y el total de liquidaciones. Las liquidaciones superan a los ingresos en $10,004.
+* Liquidaciones correspondientes a períodos anteriores
+* Ajustes manuales no documentados
+* Algún ingreso que no quedó correctamente registrado en la cartola
 
-   El caso más evidente ocurrió el 31 de agosto: ese día se liquidaron $10,030 distribuidos entre 9 comercios, pero el día anterior (30 de agosto) solo habían ingresado $40 desde Banco Falabella.
-
-   Detalle de las liquidaciones del 31 de agosto:
-   - Smart Finances SpA: $8,265
-   - Roots Housing Spa: $1,739
-   - Tesla: $6
-   - Costanera Chacabuco Ltda: $6
-   - Mirador San Juan: $4
-   - PZ Construcciones S.A.: $4
-   - Seguros Asesorados Ltda: $2
-   - SALON SPA ESPINOSA: $2
-   - Inmobiliaria Ruiz-Tagle SPA: $2
-
-   Posibles explicaciones: liquidaciones pendientes de períodos anteriores, ajustes manuales no documentados, o algún ingreso que no quedó registrado correctamente.
-
+Este punto requiere revisión para asegurar un cierre contable correcto.
 
 2. Movimientos con montos atípicos
 
-   Se registraron 12 transacciones con montos inferiores a $50, incluyendo operaciones de $2, $4, $6, $10, $20 y $40.
+Se identificaron 12 transacciones con montos inferiores a $50 (por ejemplo: $2, $4, $6, $10, $20 y $40).
 
-   Estos montos son inusualmente bajos para operaciones de débito directo. Podrían corresponder a pruebas del sistema, cargos mínimos o residuales, o errores de digitación.
-
-   Recomiendo confirmar si estos movimientos son intencionales o si deben ser investigados.
-
+Estos montos son inusualmente bajos para operaciones de débito directo y podrían corresponder a pruebas del sistema, cargos mínimos o residuales, o errores operativos. Se recomienda confirmar si estos movimientos son esperados.
 
 3. Inconsistencia en nombres de comercios
 
-   Algunos comercios aparecen registrados con variantes de nombre:
-   - "Smart Finances SPA" y "Smart Finances SpA"
-   - "Roots Housing SPA" y "Roots Housing Spa"
+Algunos comercios aparecen con variantes en su nombre, por ejemplo:
 
-   Esta inconsistencia puede dificultar la conciliación automática y generar errores en los reportes consolidados. Sería conveniente normalizar estos nombres en el sistema.
+* Smart Finances SPA / Smart Finances SpA
+* Roots Housing SPA / Roots Housing Spa
 
+Esta inconsistencia puede dificultar la conciliación automática y los reportes consolidados. Sería conveniente normalizar estos nombres en el sistema.
+
+---
 
 CONCLUSIÓN
-----------
 
-El producto opera según lo esperado en términos de flujo y tiempos. Sin embargo, el descuadre de $10,004 requiere investigación para identificar su origen y asegurar que la contabilidad cierre correctamente.
+En términos generales, el producto opera según lo esperado y el flujo ingresos–liquidaciones es consistente. No obstante, el descuadre de $10.004 CLP es el principal punto a investigar antes de cerrar definitivamente la contabilidad del período.
 
-Quedo disponible para profundizar en cualquiera de estos puntos o generar reportes adicionales si los necesitas.
+Quedo atento por si quieres que profundice en alguno de estos puntos o prepare un análisis adicional.
 
-Saludos
+Saludos,
+Santiago
