@@ -55,7 +55,6 @@ Edita `.env`:
 
 ```env
 FINTOC_API_KEY=sk_test_tu_api_key
-FINTOC_BASE_URL=https://api.fintoc.com
 FINTOC_JWS_PRIVATE_KEY_PATH=./private_key.pem
 FINTOC_ACCOUNT_ID=acc_tu_account_id
 ```

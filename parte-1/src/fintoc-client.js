@@ -6,7 +6,6 @@ export class FintocClient {
   constructor(config) {
     this.apiKey = config.apiKey;
     this.jwsPrivateKeyPath = config.jwsPrivateKeyPath;
-    this.FINTOC_API_BASE_URL =  process.env.FINTOC_BASE_URL
     this.accountId = config.accountId;
     this.client = null;
   }
@@ -178,21 +177,16 @@ export class FintocClient {
 
   async getAccountNumbers() {
     try {
-      // Use direct API call to get account numbers
-      const response = await fetch(`${this.FINTOC_API_BASE_URL}/account_numbers?account_id=${this.accountId}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': this.apiKey,
-          'Content-Type': 'application/json'
-        }
-      });
+      // Use SDK to list account numbers and filter by account_id
+      const accountNumbersIterator = await this.client.v2.accountNumbers.list();
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error?.message || `HTTP ${response.status}`);
+      const accountNumbers = [];
+      for await (const acno of accountNumbersIterator) {
+        if (acno.account_id === this.accountId) {
+          accountNumbers.push(acno);
+        }
       }
 
-      const accountNumbers = await response.json();
       return {
         success: true,
         accountNumbers: accountNumbers
@@ -231,27 +225,12 @@ export class FintocClient {
       logger.info(`Simulating deposit of $${amount.toLocaleString('es-CL')} CLP...`);
       logger.info(`Account Number ID: ${accountNumberId}`);
 
-      // Call the simulate receive transfer endpoint directly via HTTP
-      const response = await fetch(`${this.FINTOC_API_BASE_URL}/simulate/receive_transfer`, {
-        method: 'POST',
-        headers: {
-          'Authorization': this.apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          account_number_id: accountNumberId,
-          amount: amount,
-          currency: 'clp'
-        })
+      // Use SDK to simulate receive transfer (test mode only)
+      const result = await this.client.v2.simulate.receiveTransfer({
+        account_number_id: accountNumberId,
+        amount: amount,
+        currency: 'clp'
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.error?.message || errorData.message || `HTTP ${response.status}`;
-        throw new Error(errorMessage);
-      }
-
-      const result = await response.json().catch(() => ({}));
 
       // Wait a moment for the balance to update
       await new Promise(resolve => setTimeout(resolve, 1000));
