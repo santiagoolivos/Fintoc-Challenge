@@ -1,13 +1,12 @@
 import { Fintoc } from 'fintoc';
 import { logger } from './utils/logger.js';
 
-// Base URL for Fintoc API
-const FINTOC_API_BASE_URL = 'https://api.fintoc.com/v2';
 
 export class FintocClient {
   constructor(config) {
     this.apiKey = config.apiKey;
     this.jwsPrivateKeyPath = config.jwsPrivateKeyPath;
+    this.FINTOC_API_BASE_URL =  process.env.FINTOC_BASE_URL
     this.accountId = config.accountId;
     this.client = null;
   }
@@ -152,7 +151,7 @@ export class FintocClient {
   async getAccountNumbers() {
     try {
       // Use direct API call to get account numbers
-      const response = await fetch(`${FINTOC_API_BASE_URL}/account_numbers?account_id=${this.accountId}`, {
+      const response = await fetch(`${this.FINTOC_API_BASE_URL}/account_numbers?account_id=${this.accountId}`, {
         method: 'GET',
         headers: {
           'Authorization': this.apiKey,
@@ -205,7 +204,7 @@ export class FintocClient {
       logger.info(`Account Number ID: ${accountNumberId}`);
 
       // Call the simulate receive transfer endpoint directly via HTTP
-      const response = await fetch(`${FINTOC_API_BASE_URL}/simulate/receive_transfer`, {
+      const response = await fetch(`${this.FINTOC_API_BASE_URL}/simulate/receive_transfer`, {
         method: 'POST',
         headers: {
           'Authorization': this.apiKey,
