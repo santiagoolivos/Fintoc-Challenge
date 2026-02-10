@@ -12,8 +12,11 @@ const CRITICAL_ERRORS = [
   'invalid_account',
   'account_not_found',
   'unauthorized',
-  'forbidden'
+  'forbidden',
+  'invalid_comment_size'
 ];
+
+const MAX_COMMENT_LENGTH = 40;
 
 export class TransferService {
   constructor(fintocClient) {
@@ -85,11 +88,31 @@ export class TransferService {
   }
 
   generateUniqueComment(baseComment, index, total) {
-    const uniqueId = randomUUID().substring(0, 8);
-    return `${baseComment} ${index}/${total} ref:${uniqueId}`;
+    const uniqueId = randomUUID().substring(0, 4);
+    const suffix = ` ${index}/${total} #${uniqueId}`;
+    const maxBaseLength = MAX_COMMENT_LENGTH - suffix.length;
+
+    // Truncate base comment if needed to fit within 40 chars
+    const truncatedBase = baseComment.length > maxBaseLength
+      ? baseComment.substring(0, maxBaseLength - 2) + '..'
+      : baseComment;
+
+    return `${truncatedBase}${suffix}`;
   }
 
-  async executeTransfers(totalAmount, counterparty, baseComment = 'Pago', skipBalanceCheck = false) {
+  validateComment(baseComment, totalTransfers) {
+    // Calculate the suffix length for the worst case (max index)
+    const maxSuffix = ` ${totalTransfers}/${totalTransfers} #xxxx`;
+    const maxBaseLength = MAX_COMMENT_LENGTH - maxSuffix.length;
+
+    if (baseComment.length > maxBaseLength) {
+      logger.warning(`Comment will be truncated (max ${maxBaseLength} chars for ${totalTransfers} transfers)`);
+    }
+
+    return true;
+  }
+
+  async executeTransfers(totalAmount, counterparty, baseComment = 'Pago', referenceId = null, skipBalanceCheck = false) {
     // Step 1: Verify balance before starting (unless skipped)
     if (!skipBalanceCheck) {
       const balanceCheck = await this.verifyBalance(totalAmount);
@@ -106,9 +129,12 @@ export class TransferService {
     }
 
     const chunks = this.calculateTransferChunks(totalAmount);
-    const results = [];  
+    const results = [];
     let aborted = false;
     let abortReason = null;
+
+    // Validate comment length
+    this.validateComment(baseComment, chunks.length);
 
     logger.header('Transfer Execution Plan');
     logger.info(`Total amount: $${totalAmount.toLocaleString('es-CL')} CLP`);
@@ -126,13 +152,16 @@ export class TransferService {
         amount: chunk.amount,
         counterparty,
         comment,
+        referenceId,
         idempotencyKey
       });
 
       results.push({
         index: chunk.index,
         amount: chunk.amount,
+        baseComment,
         comment,
+        referenceId,
         ...result
       });
 
@@ -185,6 +214,7 @@ export class TransferService {
       const transferId = result.transfer.id;
       let attempts = 0;
       let finalStatus = result.transfer.status;
+      let updatedTransfer = result.transfer;
 
       // Poll until we get a terminal status or max attempts
       while (this.isPendingStatus(finalStatus) && attempts < MAX_POLL_ATTEMPTS) {
@@ -194,6 +224,8 @@ export class TransferService {
         try {
           const transfer = await this.client.getTransfer(transferId);
           finalStatus = transfer.status;
+          // Update transfer with new data (transaction_date, post_date, etc.)
+          updatedTransfer = { ...updatedTransfer, ...transfer };
           logger.info(`Transfer ${result.index}: ${transferId} - Status: ${finalStatus}`);
         } catch (error) {
           logger.warning(`Failed to poll transfer ${transferId}: ${error.message}`);
@@ -202,6 +234,7 @@ export class TransferService {
 
       finalResults.push({
         ...result,
+        transfer: updatedTransfer,
         finalStatus,
         pollingAttempts: attempts
       });

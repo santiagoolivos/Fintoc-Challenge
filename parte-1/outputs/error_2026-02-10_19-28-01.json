@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "generatedAt": "2026-02-10T19:28:01.279Z",
+    "reportType": "ERROR",
+    "totalAmount": 7000000,
+    "currency": "CLP",
+    "recipient": {
+      "holder_id": "20163891-7",
+      "holder_name": "John Doe",
+      "account_number": "12456789",
+      "account_type": "checking_account",
+      "institution_id": "cl_banco_santander"
+    },
+    "mode": "test"
+  },
+  "error": {
+    "type": "insufficient_balance",
+    "message": "Insufficient balance. Available: $0 CLP, Required: $7.000.000 CLP",
+    "details": {
+      "available": 0,
+      "required": 7000000,
+      "deficit": 7000000
+    }
+  },
+  "execution": {
+    "aborted": true,
+    "abortReason": "Insufficient balance. Available: $0 CLP, Required: $7.000.000 CLP",
+    "totalPlanned": 0,
+    "totalExecuted": 0
+  },
+  "partialResults": [],
+  "recommendations": [
+    "Check the account balance in the Fintoc Dashboard",
+    "Reduce the transfer amount to match available balance",
+    "Add funds to the account before retrying",
+    "Contact Fintoc support if balance appears incorrect"
+  ]
+}

@@ -34,6 +34,7 @@ program
   .requiredOption('--bank <string>', 'Bank institution ID (e.g., cl_banco_santander)')
   .requiredOption('--type <string>', 'Account type: checking_account or sight_account')
   .option('--comment <string>', 'Base comment for transfers', 'Pago')
+  .option('--reference-id <string>', 'Reference ID for transfers (max 7 digits, Mexico only)')
   .option('--skip-polling', 'Skip polling for final transfer statuses', false)
   .parse(process.argv);
 
@@ -90,6 +91,7 @@ function validateInputs() {
       institutionId: options.bank
     },
     comment: options.comment,
+    referenceId: options.referenceId || null,
     skipPolling: options.skipPolling
   };
 }
@@ -168,14 +170,14 @@ async function main() {
       logger.info('You are in TEST MODE. You can simulate a deposit to add funds.');
 
       const answer = await askQuestion(
-        `\n¿Do you want to simulate a deposit of $${inputs.amount.toLocaleString('es-CL')} CLP? (yes/no): `
+        `\n¿Do you want to simulate a deposit of $${deficit.toLocaleString('es-CL')} CLP (deficit only)? (yes/no): `
       );
 
       if (answer === 'yes' || answer === 'y' || answer === 'si' || answer === 's') {
         logger.divider();
         logger.header('Simulating Deposit');
 
-        const depositResult = await fintocClient.simulateDeposit(inputs.amount);
+        const depositResult = await fintocClient.simulateDeposit(deficit);
 
         if (depositResult.success) {
           logger.success('Deposit simulated successfully!');
@@ -260,6 +262,7 @@ async function main() {
     inputs.amount,
     inputs.counterparty,
     inputs.comment,
+    inputs.referenceId,
     true // skipBalanceCheck = true
   );
 

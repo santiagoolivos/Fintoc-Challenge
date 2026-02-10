@@ -114,6 +114,7 @@ npm run transfer -- \
 | `--bank` | Sí | ID del banco (ver lista abajo) |
 | `--type` | Sí | Tipo de cuenta: `checking_account` o `sight_account` |
 | `--comment` | No | Comentario base para las transferencias (default: "Pago") |
+| `--reference-id` | No | ID de referencia (solo México, máx 7 dígitos) |
 | `--skip-polling` | No | Omitir verificación de estados finales |
 
 ### Bancos disponibles (Chile)
@@ -217,9 +218,13 @@ Los reportes se guardan en la carpeta `outputs/` en formato JSON:
       "index": 1,
       "transferId": "tr_abc123",
       "amount": 7000000,
-      "status": "pending",
-      "finalStatus": "succeeded",
-      "comment": "Pago 1/72 ref:a1b2c3d4"
+      "currency": "CLP",
+      "status": "succeeded",
+      "comment": "Pago factura",
+      "transactionDate": "2026-02-10T16:57:17.000Z",
+      "postDate": "2026-02-10T00:00:00.000Z",
+      "referenceId": null,
+      "mode": "test"
     }
   ]
 }

@@ -85,10 +85,13 @@ export class ReportGenerator {
         index: r.index,
         transferId: r.transfer?.id || null,
         amount: r.amount,
-        status: r.transfer?.status || 'failed',
-        finalStatus: r.finalStatus || r.transfer?.status || 'failed',
-        comment: r.comment,
-        createdAt: r.transfer?.createdAt || null,
+        currency: r.transfer?.currency || 'CLP',
+        status: r.finalStatus || r.transfer?.status || 'failed',
+        comment: r.baseComment || r.comment,
+        transactionDate: r.transfer?.transactionDate || null,
+        postDate: r.transfer?.postDate || null,
+        referenceId: r.referenceId || r.transfer?.referenceId || null,
+        mode: r.transfer?.mode || null,
         error: r.error || null
       }))
     };

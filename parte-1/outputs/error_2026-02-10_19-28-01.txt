@@ -1,0 +1,33 @@
+══════════════════════════════════════════════════════════════════════
+TRANSFER ERROR REPORT
+══════════════════════════════════════════════════════════════════════
+
+Generated: 2026-02-10T19:28:01.279Z
+
+──────────────────────────────────────────────────────────────────────
+ERROR DETAILS
+──────────────────────────────────────────────────────────────────────
+Type: insufficient_balance
+Message: Insufficient balance. Available: $0 CLP, Required: $7.000.000 CLP
+
+Details:
+  - available: $0 CLP
+  - required: $7.000.000 CLP
+  - deficit: $7.000.000 CLP
+
+──────────────────────────────────────────────────────────────────────
+EXECUTION STATUS
+──────────────────────────────────────────────────────────────────────
+Aborted: YES
+Transfers Planned: 0
+Transfers Executed: 0
+
+──────────────────────────────────────────────────────────────────────
+RECOMMENDATIONS
+──────────────────────────────────────────────────────────────────────
+1. Check the account balance in the Fintoc Dashboard
+2. Reduce the transfer amount to match available balance
+3. Add funds to the account before retrying
+4. Contact Fintoc support if balance appears incorrect
+
+══════════════════════════════════════════════════════════════════════

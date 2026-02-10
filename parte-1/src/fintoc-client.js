@@ -23,10 +23,10 @@ export class FintocClient {
   }
 
   async createTransfer(transferData) {
-    const { amount, counterparty, comment, idempotencyKey } = transferData;
+    const { amount, counterparty, comment, referenceId, idempotencyKey } = transferData;
 
     try {
-      const transfer = await this.client.v2.transfers.create({
+      const transferParams = {
         amount: amount,
         currency: 'clp',
         account_id: this.accountId,
@@ -39,16 +39,28 @@ export class FintocClient {
         },
         comment: comment,
         idempotency_key: idempotencyKey
-      });
+      };
+
+      // Add reference_id if provided (Mexico only, max 7 digits)
+      if (referenceId) {
+        transferParams.reference_id = referenceId;
+      }
+
+      const transfer = await this.client.v2.transfers.create(transferParams);
+
 
       return {
         success: true,
         transfer: {
           id: transfer.id,
           amount: transfer.amount,
+          currency: transfer.currency,
           status: transfer.status,
           comment: transfer.comment,
-          createdAt: transfer.created_at
+          transactionDate: transfer.transaction_date || transfer.transactionDate,
+          postDate: transfer.post_date || transfer.postDate,
+          referenceId: transfer.reference_id || transfer.referenceId,
+          mode: transfer.mode
         }
       };
     } catch (error) {
@@ -64,13 +76,18 @@ export class FintocClient {
   async getTransfer(transferId) {
     try {
       const transfer = await this.client.v2.transfers.get(transferId);
+
+
       return {
         id: transfer.id,
         amount: transfer.amount,
+        currency: transfer.currency,
         status: transfer.status,
         comment: transfer.comment,
-        createdAt: transfer.created_at,
-        transactionDate: transfer.transaction_date
+        transactionDate: transfer.transaction_date || transfer.transactionDate,
+        postDate: transfer.post_date || transfer.postDate,
+        referenceId: transfer.reference_id || transfer.referenceId,
+        mode: transfer.mode
       };
     } catch (error) {
       logger.error(`Failed to get transfer ${transferId}: ${error.message}`);
@@ -105,15 +122,20 @@ export class FintocClient {
   async getAccountBalance() {
     try {
       const account = await this.client.v2.accounts.get(this.accountId);
+
+      // Treasury API returns available_balance directly on account object
+      const available = account.available_balance ?? account.availableBalance ?? 0;
+      const holderName = account.entity?.holder_name ?? account.entity?.holderName ?? 'Unknown';
+
       return {
         success: true,
         accountId: account.id,
         balance: {
-          available: account.balance?.available || 0,
-          current: account.balance?.current || 0
+          available,
+          current: available // Treasury API only has available_balance
         },
         currency: account.currency || 'CLP',
-        name: account.name || 'Unknown'
+        name: holderName
       };
     } catch (error) {
       logger.error(`Failed to get account balance: ${error.message}`);
@@ -127,16 +149,22 @@ export class FintocClient {
   async getAccountDetails() {
     try {
       const account = await this.client.v2.accounts.get(this.accountId);
+
+      // Treasury API format
+      const available = account.available_balance ?? account.availableBalance ?? 0;
+      const holderName = account.entity?.holder_name ?? account.entity?.holderName ?? 'Unknown';
+      const accountNumberId = account.root_account_number_id ?? account.rootAccountNumberId ?? null;
+
       return {
         success: true,
         accountId: account.id,
-        accountNumberId: account.account_number?.id || account.root_account_number?.id || null,
+        accountNumberId,
         balance: {
-          available: account.balance?.available || 0,
-          current: account.balance?.current || 0
+          available,
+          current: available
         },
         currency: account.currency || 'CLP',
-        name: account.name || 'Unknown',
+        name: holderName,
         mode: account.mode || 'unknown'
       };
     } catch (error) {
