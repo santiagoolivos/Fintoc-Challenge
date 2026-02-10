@@ -81,6 +81,8 @@ npm run transfer -- \
 parte-1/outputs/transfers_*.json
 ```
 
+video solución parte 1: [https://www.loom.com/share/a4a2e5d4735943d4a8a8e065f4a735cb](https://www.loom.com/share/a4a2e5d4735943d4a8a8e065f4a735cb)
+
 Ver [parte-1/README.md](./parte-1/README.md) para documentación completa.
 
 ---
