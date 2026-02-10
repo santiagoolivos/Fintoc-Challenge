@@ -1,0 +1,41 @@
+CONCLUSIONES DEL ANÁLISIS - DÉBITO DIRECTO
+Período: 08 Agosto - 14 Septiembre 2022
+============================================================
+
+RESUMEN FINANCIERO
+-----------------
+• Ingresos PAC:    $  15,342,256 CLP (26 movimientos)
+• Liquidaciones:   $  15,352,260 CLP (44 movimientos)
+• Descuadre:       $     -10,004 CLP
+
+RESPUESTA A LAS PREGUNTAS
+-------------------------
+
+1. ¿SE CONDICE EL FUNCIONAMIENTO DEL PRODUCTO CON LOS MOVIMIENTOS?
+
+   PARCIALMENTE. El flujo esperado es:
+   - Día N: Banco transfiere a Fintoc (Ingreso PAC)
+   - Día N+1 hábil: Fintoc paga a comercios (Liquidación)
+
+   Este patrón se cumple en la mayoría de casos, pero hay excepciones
+   que generan un descuadre de $10,004 CLP.
+
+2. ANOMALÍAS ENCONTRADAS
+
+   a) DESCUADRE DE $10,004 CLP (SEVERIDAD ALTA)
+      Las liquidaciones superan a los ingresos. El 31/08 se liquidaron
+      $10,030 CLP pero solo entraron $40 CLP el día anterior.
+
+   b) 12 MOVIMIENTOS ATÍPICOS (SEVERIDAD BAJA)
+      Transacciones con montos menores a $50, posiblemente pruebas
+      de sistema o errores de digitación.
+
+   c) COMERCIOS CON NOMBRES DUPLICADOS (SEVERIDAD MEDIA)
+      Existen variantes de nombres (ej: "Spa" vs "SPA") que
+      dificultan la conciliación correcta.
+
+RECOMENDACIONES
+---------------
+1. Investigar las liquidaciones del 31/08 que no tienen ingreso asociado
+2. Normalizar nombres de comercios en el sistema
+3. Revisar si los movimientos pequeños son pruebas de sistema

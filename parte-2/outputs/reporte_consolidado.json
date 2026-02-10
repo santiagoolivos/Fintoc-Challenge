@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "periodo": {
+      "inicio": "2022-08-08",
+      "fin": "2022-09-14"
+    },
+    "generado": "2026-02-10T00:50:48.441200",
+    "total_registros": 70
+  },
+  "resumen_financiero": {
+    "total_ingresos": 15342256,
+    "total_liquidaciones": 15352260,
+    "descuadre": -10004,
+    "num_ingresos": 26,
+    "num_liquidaciones": 44
+  },
+  "por_banco": [
+    {
+      "banco": "Banco Santander",
+      "total": 5961579,
+      "cantidad": 6
+    },
+    {
+      "banco": "bco.credito Inversiones",
+      "total": 4251225,
+      "cantidad": 4
+    },
+    {
+      "banco": "Banco Del Estado",
+      "total": 2270154,
+      "cantidad": 5
+    },
+    {
+      "banco": "Bank Boston N.a.",
+      "total": 1392341,
+      "cantidad": 4
+    },
+    {
+      "banco": "Banco Falabella",
+      "total": 848250,
+      "cantidad": 5
+    },
+    {
+      "banco": "Banco Sud Americano",
+      "total": 618707,
+      "cantidad": 2
+    }
+  ],
+  "por_comercio": [
+    {
+      "comercio": "NoPayments",
+      "total": 10657027,
+      "cantidad": 16
+    },
+    {
+      "comercio": "Tesla",
+      "total": 1353581,
+      "cantidad": 4
+    },
+    {
+      "comercio": "Mirador San Juan",
+      "total": 1342810,
+      "cantidad": 3
+    },
+    {
+      "comercio": "Seguros Asesorados Ltda",
+      "total": 979536,
+      "cantidad": 4
+    },
+    {
+      "comercio": "Constructora e Inmobiliaria Partners",
+      "total": 575640,
+      "cantidad": 3
+    },
+    {
+      "comercio": "Inmobiliaria Ruiz-Tagle SPA",
+      "total": 237346,
+      "cantidad": 3
+    },
+    {
+      "comercio": "SALON SPA ESPINOSA",
+      "total": 186165,
+      "cantidad": 3
+    },
+    {
+      "comercio": "Roots Housing SPA",
+      "total": 8265,
+      "cantidad": 1
+    },
+    {
+      "comercio": "Smart Finances SpA",
+      "total": 8265,
+      "cantidad": 1
+    },
+    {
+      "comercio": "Roots Housing Spa",
+      "total": 1876,
+      "cantidad": 3
+    },
+    {
+      "comercio": "Smart Finances SPA",
+      "total": 1739,
+      "cantidad": 1
+    },
+    {
+      "comercio": "Costanera Chacabuco Ltda",
+      "total": 6,
+      "cantidad": 1
+    },
+    {
+      "comercio": "PZ Construcciones S.A.",
+      "total": 4,
+      "cantidad": 1
+    }
+  ],
+  "anomalias": [
+    {
+      "tipo": "Descuadre financiero",
+      "descripcion": "Diferencia de $10,004 entre ingresos y liquidaciones",
+      "impacto": 10004,
+      "severidad": "alta"
+    },
+    {
+      "tipo": "Movimientos atípicos",
+      "descripcion": "12 transacciones con montos < $50 (posibles pruebas)",
+      "impacto": 12,
+      "severidad": "baja"
+    },
+    {
+      "tipo": "Datos inconsistentes",
+      "descripcion": "Comercios con variantes de nombre",
+      "impacto": 0,
+      "severidad": "media"
+    },
+    {
+      "tipo": "Flujo incorrecto",
+      "descripcion": "31/08: Se liquidaron $10,030 pero ingresaron solo $40 el 30/08",
+      "impacto": 9990,
+      "severidad": "alta"
+    }
+  ]
+}

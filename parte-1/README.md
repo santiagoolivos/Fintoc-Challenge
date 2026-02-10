@@ -71,8 +71,6 @@ curl https://api.fintoc.com/v2/accounts \
 
 En modo test, la cuenta de Fintoc comienza con saldo $0. Para poder realizar transferencias, necesitas agregar fondos simulados.
 
-### Opción 1: Via Script (Recomendado)
-
 Al ejecutar el script, si detecta saldo insuficiente en modo test, te preguntará:
 
 ```
@@ -90,12 +88,6 @@ Balance Verification
 
 Responde `yes` y el script simulará automáticamente el depósito antes de ejecutar las transferencias.
 
-### Opción 2: Via Dashboard
-
-1. Ingresa al [Dashboard de Fintoc](https://dashboard.fintoc.com)
-2. Ve a Tesorería → Cuentas → Tu cuenta
-3. Haz clic en el botón "Simular"
-4. Ingresa el monto que deseas agregar
 
 ## Uso
 
