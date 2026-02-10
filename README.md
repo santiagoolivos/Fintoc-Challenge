@@ -9,12 +9,19 @@ Soluciones al desafío técnico de Product Operations de Fintoc.
 ```
 .
 ├── README.md
-├── parte-1/                  # Integración API Transferencias
-│   ├── main.py
-│   ├── requirements.txt
-│   ├── README.md
-│   └── outputs/
-│       └── transfers_*.json
+├── parte-1/                  # Integración API Transferencias (Node.js)
+│   ├── src/
+│   │   ├── index.js              # Entry point con CLI
+│   │   ├── fintoc-client.js      # Cliente API de Fintoc
+│   │   ├── transfer-service.js   # Lógica de transferencias
+│   │   ├── report-generator.js   # Generador de reportes
+│   │   └── utils/
+│   │       └── logger.js
+│   ├── outputs/
+│   │   └── transfers_*.json
+│   ├── package.json
+│   ├── .env.example
+│   └── README.md
 │
 └── parte-2/                  # Análisis Cartola Débito Directo
     ├── analisis_debito_directo.ipynb
@@ -31,7 +38,7 @@ Soluciones al desafío técnico de Product Operations de Fintoc.
 ## Parte 1: Integración API de Transferencias
 
 ### Objetivo
-Implementar un cliente que consuma la API de transferencias de Fintoc, autenticando con JWS (JSON Web Signature), y obtenga las transferencias del mes de julio 2022.
+Script CLI para ejecutar transferencias de alto monto a través de la API de Fintoc (Treasury API), dividiendo automáticamente el monto total en transferencias de máximo $7.000.000 CLP.
 
 ### Cómo ejecutar
 
@@ -39,20 +46,42 @@ Implementar un cliente que consuma la API de transferencias de Fintoc, autentica
 cd parte-1
 
 # Instalar dependencias
-pip install -r requirements.txt
+npm install
 
 # Configurar variables de entorno
-export FINTOC_API_KEY="tu_api_key"
-export FINTOC_JWS_PRIVATE_KEY_PATH="ruta/a/private_key.pem"
+cp .env.example .env
+# Editar .env con tus credenciales
 
-# Ejecutar
-python main.py
+# Ejecutar transferencia
+npm run transfer -- \
+  --amount 500000000 \
+  --rut "20163891-7" \
+  --name "Juan Pérez" \
+  --account "123456789" \
+  --bank "cl_banco_santander" \
+  --type "checking_account" \
+  --comment "Pago factura"
 ```
+
+### Parámetros
+
+| Parámetro | Requerido | Descripción |
+|-----------|-----------|-------------|
+| `--amount` | Sí | Monto total a transferir en CLP |
+| `--rut` | Sí | RUT del destinatario |
+| `--name` | Sí | Nombre completo del destinatario |
+| `--account` | Sí | Número de cuenta del destinatario |
+| `--bank` | Sí | ID del banco (ej: `cl_banco_santander`) |
+| `--type` | Sí | Tipo de cuenta: `checking_account` o `sight_account` |
+| `--comment` | No | Comentario para las transferencias |
+| `--reference-id` | No | ID de referencia (solo México) |
 
 ### Dónde encontrar la respuesta
 ```
 parte-1/outputs/transfers_*.json
 ```
+
+Ver [parte-1/README.md](./parte-1/README.md) para documentación completa.
 
 ---
 
@@ -102,8 +131,12 @@ parte-2/outputs/email_final.txt
 
 ## Requisitos
 
+### Parte 1 (Node.js)
+- Node.js 18+
+- Cuenta de Fintoc con API Key
+- Par de llaves JWS
+
+### Parte 2 (Python)
 - Python 3.11+
 - pandas
 - ipykernel
-- requests
-- python-jose
