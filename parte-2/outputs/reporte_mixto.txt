@@ -1,0 +1,72 @@
+
+================================================================================
+CIERRE CONTABLE DÉBITO DIRECTO | Ago 08 - Sep 14 | FORMATO MIXTO
+================================================================================
+
+CIFRAS CLAVE
+------------
+Ingresos:      $     15,342,256 CLP
+Liquidaciones: $     15,352,260 CLP
+Descuadre:     $        -10,004 CLP
+
+¿SE CONDICE CON EL FUNCIONAMIENTO DEL PRODUCTO?
+-----------------------------------------------
+PARCIALMENTE. El flujo general se cumple en la mayoría de los casos.
+Las excepciones generan el descuadre detectado.
+
+ANOMALÍAS DETECTADAS (3)
+-----------------------
+  #1 Descuadre financiero: $10,004 CLP (Ver Anexo A)
+  #2 Montos atípicos: 12 movimientos (Ver Anexo B)
+  #3 Calidad de datos: Data Quality (Ver Anexo C)
+
+
+================================================================================
+ANEXO A: INGRESOS POR BANCO
+================================================================================
+                           Total  Cantidad
+banco                                     
+Banco Santander          5961579         6
+bco.credito Inversiones  4251225         4
+Banco Del Estado         2270154         5
+Bank Boston N.a.         1392341         4
+Banco Falabella           848250         5
+Banco Sud Americano       618707         2
+
+================================================================================
+ANEXO B: LIQUIDACIONES POR COMERCIO
+================================================================================
+                                         Total  Cantidad
+comercio                                                
+NoPayments                            10657027        16
+Tesla                                  1353581         4
+Mirador San Juan                       1342810         3
+Seguros Asesorados Ltda                 979536         4
+Constructora e Inmobiliaria Partners    575640         3
+Inmobiliaria Ruiz-Tagle SPA             237346         3
+SALON SPA ESPINOSA                      186165         3
+Roots Housing SPA                         8265         1
+Smart Finances SpA                        8265         1
+Roots Housing Spa                         1876         3
+Smart Finances SPA                        1739         1
+Costanera Chacabuco Ltda                     6         1
+PZ Construcciones S.A.                       4         1
+
+================================================================================
+ANEXO C: MOVIMIENTOS ATÍPICOS
+================================================================================
+      date                                      description  amount
+2022-09-09                        Liquidacion a: NoPayments     -10
+2022-09-05       Liquidacion a: Inmobiliaria Ruiz-Tagle SPA     -20
+2022-09-03 Ingreso por PAC Multibco.bco.credito Inversiones      20
+2022-08-31           Liquidacion a: Seguros Asesorados Ltda      -2
+2022-08-31                  Liquidacion a: Mirador San Juan      -4
+2022-08-31                Liquidacion a: SALON SPA ESPINOSA      -2
+2022-08-31       Liquidacion a: Inmobiliaria Ruiz-Tagle SPA      -2
+2022-08-31          Liquidacion a: Costanera Chacabuco Ltda      -6
+2022-08-31            Liquidacion a: PZ Construcciones S.A.      -4
+2022-08-31                             Liquidacion a: Tesla      -6
+2022-08-30       Ingreso por PAC Multibanco Banco Falabella      40
+2022-08-24                 Liquidacion a: Roots Housing Spa     -34
+
+================================================================================

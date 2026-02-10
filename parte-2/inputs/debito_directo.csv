@@ -1,0 +1,71 @@
+description,amount,currency,date,type,recipient_account,comment,pending,object
+Liquidacion a: NoPayments,-583126,CLP,2022-09-14,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-477862,CLP,2022-09-14,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,583126,CLP,2022-09-13,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Del Estado,477862,CLP,2022-09-13,other,,,FALSO,movement
+Liquidacion a: Inmobiliaria Ruiz-Tagle SPA,-237324,CLP,2022-09-12,transfer,,,FALSO,movement
+Liquidacion a: Constructora e Inmobiliaria Partners,-9030,CLP,2022-09-12,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-567016,CLP,2022-09-12,transfer,,,FALSO,movement
+Liquidacion a: Constructora e Inmobiliaria Partners,-566507,CLP,2022-09-12,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Del Estado,567016,CLP,2022-09-09,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Sud Americano,566507,CLP,2022-09-09,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,246354,CLP,2022-09-09,other,,,FALSO,movement
+Liquidacion a: NoPayments,-314830,CLP,2022-09-09,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-266977,CLP,2022-09-09,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-1027012,CLP,2022-09-09,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-10,CLP,2022-09-09,transfer,,,FALSO,movement
+Liquidacion a: Mirador San Juan,-1342704,CLP,2022-09-09,transfer,,,FALSO,movement
+Liquidacion a: Seguros Asesorados Ltda,-601161,CLP,2022-09-09,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,314830,CLP,2022-09-08,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Falabella,10000,CLP,2022-09-08,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Del Estado,266977,CLP,2022-09-08,other,,,FALSO,movement
+Ingreso por PAC Multibco.bco.credito Inversiones,2970877,CLP,2022-09-08,other,,,FALSO,movement
+Liquidacion a: Inmobiliaria Ruiz-Tagle SPA,-20,CLP,2022-09-05,transfer,,,FALSO,movement
+Ingreso por PAC Multibco.bco.credito Inversiones,20,CLP,2022-09-03,other,,,FALSO,movement
+Liquidacion a: NoPayments,-3286820,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-184153,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-1002487,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: Mirador San Juan,-102,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-235954,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: Smart Finances SPA,-1739,CLP,2022-09-02,transfer,,,FALSO,movement
+Liquidacion a: Roots Housing SPA,-8265,CLP,2022-09-02,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Bank Boston N.a.,235954,CLP,2022-09-01,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Falabella,184153,CLP,2022-09-01,other,,,FALSO,movement
+Ingreso por PAC Multibco.bco.credito Inversiones,1002487,CLP,2022-09-01,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,3286922,CLP,2022-09-01,other,,,FALSO,movement
+Liquidacion a: NoPayments,-567650,CLP,2022-09-01,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-280210,CLP,2022-09-01,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,567650,CLP,2022-08-31,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Del Estado,280210,CLP,2022-08-31,other,,,FALSO,movement
+Liquidacion a: Seguros Asesorados Ltda,-2,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Mirador San Juan,-4,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: SALON SPA ESPINOSA,-2,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Inmobiliaria Ruiz-Tagle SPA,-2,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Smart Finances SpA,-8265,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Costanera Chacabuco Ltda,-6,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: PZ Construcciones S.A.,-4,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Roots Housing Spa,-1739,CLP,2022-08-31,transfer,,,FALSO,movement
+Liquidacion a: Tesla,-6,CLP,2022-08-31,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Falabella,40,CLP,2022-08-30,other,,,FALSO,movement
+Liquidacion a: Tesla,-1156044,CLP,2022-08-26,transfer,,,FALSO,movement
+Liquidacion a: Tesla,-91781,CLP,2022-08-26,transfer,,,FALSO,movement
+Liquidacion a: Seguros Asesorados Ltda,-326173,CLP,2022-08-26,transfer,,,FALSO,movement
+Liquidacion a: SALON SPA ESPINOSA,-186060,CLP,2022-08-26,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Bank Boston N.a.,1156044,CLP,2022-08-25,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Falabella,326173,CLP,2022-08-25,other,,,FALSO,movement
+Ingreso por PAC Multibco.bco.credito Inversiones,277841,CLP,2022-08-25,other,,,FALSO,movement
+Liquidacion a: Constructora e Inmobiliaria Partners,-103,CLP,2022-08-24,transfer,,,FALSO,movement
+Liquidacion a: Tesla,-105750,CLP,2022-08-24,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-572339,CLP,2022-08-24,transfer,,,FALSO,movement
+Liquidacion a: Roots Housing Spa,-34,CLP,2022-08-24,transfer,,,FALSO,movement
+Liquidacion a: Seguros Asesorados Ltda,-52200,CLP,2022-08-24,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Sud Americano,52200,CLP,2022-08-23,other,,,FALSO,movement
+Ingreso por PAC Multibanco Bank Boston N.a.,137,CLP,2022-08-23,other,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Del Estado,678089,CLP,2022-08-23,other,,,FALSO,movement
+Liquidacion a: SALON SPA ESPINOSA,-103,CLP,2022-08-12,transfer,,,FALSO,movement
+Liquidacion a: NoPayments,-327884,CLP,2022-08-12,transfer,,,FALSO,movement
+Liquidacion a: Roots Housing Spa,-103,CLP,2022-08-12,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Falabella,327884,CLP,2022-08-11,other,,,FALSO,movement
+Ingreso por PAC Multibanco Bank Boston N.a.,206,CLP,2022-08-11,other,,,FALSO,movement
+Liquidacion a: NoPayments,-962697,CLP,2022-08-09,transfer,,,FALSO,movement
+Ingreso por PAC Multibanco Banco Santander,962697,CLP,2022-08-08,other,,,FALSO,movement

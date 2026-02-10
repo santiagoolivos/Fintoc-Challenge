@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Private keys (NEVER commit these)
+*.pem
+private_key*
+public_key*
+
+# Output reports (optional - you may want to keep these)
+# outputs/*.csv
+# outputs/*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

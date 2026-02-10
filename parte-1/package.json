@@ -1,0 +1,25 @@
+{
+  "name": "fintoc-transfers",
+  "version": "1.0.0",
+  "description": "Script to execute high-value transfers via Fintoc API by splitting into smaller chunks",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "transfer": "node src/index.js"
+  },
+  "keywords": [
+    "fintoc",
+    "transfers",
+    "chile",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "fintoc": "^1.9.0"
+  }
+}
